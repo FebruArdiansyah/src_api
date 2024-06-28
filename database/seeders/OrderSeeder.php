@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ProductSeeder extends Seeder
+class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,9 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $timestamp = \Carbon\Carbon::now()->toDateTimeString();
-        DB::table('products')->insert([
-            'name' => 'Book',
-            'price' => 5000,
+        DB::table('orders')->insert([
+            'customer_id' => 1,
+            'status' => 'success',
             'created_at' => $timestamp,
             'updated_at' => $timestamp,
         ]);

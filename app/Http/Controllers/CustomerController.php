@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ProductController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,24 +15,23 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::get();
-        //dd($data);
-        if(!$data) {
-         return response()->json(
-             [
-             'success' => false,
-             'message' => 'Product Not Found',
-             ]
-             );
-            }else{
-                     return response()->json(
-             [
-                 'success' => true,
-                 'message' => 'Product Found',
-                 'data' => $data
-             ]
-             );
-            }
+       $data = Customer::get();
+       if(!$data) {
+        return response()->json(
+            [
+            'success' => false,
+            'message' => 'Customers Not Found',
+            ]
+            );
+       }else {
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Customers Found',
+                'data' => $data
+            ]
+            );
+       }
     }
 
     /**
@@ -59,10 +58,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Customer  $Customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Customer $Customer)
     {
         //
     }
@@ -70,10 +69,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Customer  $Customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Customer $Customer)
     {
         //
     }
@@ -82,10 +81,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Customer  $Customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Customer $Customer)
     {
         //
     }
@@ -93,10 +92,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Customer  $Customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Customer $Customer)
     {
         //
     }
